@@ -23,7 +23,7 @@ export default function EMICalculator() {
   const totalInterest = totalAmount - loanAmount;
 
   return (
-    <section className="py-32 bg-gradient-to-b from-white to-gray-50">
+    <section id="emi-calculator" className="py-32 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
