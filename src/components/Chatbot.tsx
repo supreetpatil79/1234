@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { MessageCircle, Send, X, Sparkles } from 'lucide-react';
 
 interface Message {
@@ -6,10 +6,6 @@ interface Message {
   text: string;
   sender: 'user' | 'bot';
   timestamp: Date;
-}
-
-export interface ChatbotHandle {
-  open: () => void;
 }
 
 const TypingIndicator = () => (
@@ -20,7 +16,7 @@ const TypingIndicator = () => (
   </div>
 );
 
-const Chatbot = forwardRef<ChatbotHandle>((_, ref) => {
+export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -33,10 +29,6 @@ const Chatbot = forwardRef<ChatbotHandle>((_, ref) => {
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  useImperativeHandle(ref, () => ({
-    open: () => setIsOpen(true),
-  }));
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -200,8 +192,4 @@ const Chatbot = forwardRef<ChatbotHandle>((_, ref) => {
       `}</style>
     </>
   );
-});
-
-Chatbot.displayName = 'Chatbot';
-
-export default Chatbot;
+}
