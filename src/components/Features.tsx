@@ -85,16 +85,28 @@ export default function Features() {
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
               >
-                <div className="relative h-full bg-white rounded-3xl p-8 border border-gray-200 hover:border-transparent transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                <div className="relative h-full bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:border-transparent transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+                  <div className="absolute -inset-1 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 -z-10 rounded-3xl" style={{
+                    backgroundImage: `linear-gradient(135deg, rgb(59, 130, 246), rgb(34, 197, 194))`
+                  }} />
+
                   <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}>
                     <feature.icon className="w-8 h-8 text-white" />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text transition-all duration-300" style={{
+                    backgroundImage: 'linear-gradient(135deg, rgb(59, 130, 246), rgb(34, 197, 194))',
+                  }}>
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors">{feature.description}</p>
 
-                  <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 -z-10`} />
-                  <div className={`absolute -inset-px rounded-3xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10`} />
+                  <div className="mt-6 pt-6 border-t border-gray-200/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <button className="text-sm font-semibold text-blue-600 hover:text-cyan-600 flex items-center gap-2 transition-colors">
+                      Learn more
+                      <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
