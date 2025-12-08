@@ -64,15 +64,14 @@ const MetricCard = ({ metric, index, isVisible }: { metric: Metric; index: numbe
       }`}
     >
       <div className="relative inline-block">
-        <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 bg-clip-text text-transparent mb-3 animate-glow">
+        <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 bg-clip-text text-transparent mb-2">
           {metric.prefix}
           {formatValue(count)}
           {metric.suffix}
         </div>
-        <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/30 to-cyan-500/30 blur-3xl -z-10 opacity-50 group-hover:opacity-75 transition-opacity" />
+        <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 blur-2xl -z-10 opacity-50" />
       </div>
-      <p className="text-lg text-gray-600 font-semibold">{metric.label}</p>
-      <div className="mt-4 h-1 w-12 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full mx-auto" />
+      <p className="text-lg text-gray-600 font-medium">{metric.label}</p>
     </div>
   );
 };
@@ -99,11 +98,10 @@ export default function Metrics() {
   }, []);
 
   return (
-    <section id="metrics" className="py-32 bg-gradient-to-b from-white to-gray-50/50 relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute -bottom-1/2 left-1/2 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
+    <section id="metrics" className="py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">

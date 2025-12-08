@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Features from './components/Features';
-import LoanStatusFunctional from './components/LoanStatusFunctional';
+import LoanStatus from './components/LoanStatus';
 import Metrics from './components/Metrics';
 import EMICalculator from './components/EMICalculator';
 import Footer from './components/Footer';
@@ -20,7 +20,7 @@ function App() {
       <Navigation />
       <Hero onGetStartedClick={handleGetStarted} />
       <Features />
-      <LoanStatusFunctional />
+      <LoanStatus />
       <Metrics />
       <EMICalculator />
       <Footer />
